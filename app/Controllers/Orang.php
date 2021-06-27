@@ -33,4 +33,13 @@ class Orang extends BaseController
 
         return  view('orang/index', $data);
     }
+    public function update($id){
+        $this->orangModel->save([
+            'id' => $id,
+            'nama' => $this->request->getVar('nama'),
+            'alamat' => $this->request->getVar('alamat')
+        ]);
+
+        return redirect()->to('/orang');
+    }
 }
