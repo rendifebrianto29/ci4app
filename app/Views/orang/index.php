@@ -5,10 +5,13 @@
       <div class="row">
           <div class="col-6">
               <h1 class="mt-2">Daftar Orang</h1>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  Tambah Data Orang
+              </button>
               <form action="" method="post">
                   <div class="input-group mb-3">
-                      <input type="text" class="form-control" placeholder="Masukkan keyword pencarian.." name="keyword">
-                      <button class="btn btn-outline-secondary" type="submit" name="submit">Cari</button>
+                      <input type="text" class="form-control mt-3" placeholder="Masukkan keyword pencarian.." name="keyword">
+                      <button class="btn btn-outline-secondary mt-3" type="submit" name="submit">Cari</button>
                   </div>
           </div>
           </form>
@@ -54,8 +57,8 @@
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                       <div class="modal-body">
-                      <form action="/orang/update/<?= $o['id']; ?>" method="post" enctype="multipart/form-data">
-                <?= csrf_field(); ?>
+                          <form action="/orang/update/<?= $o['id']; ?>" method="post" enctype="multipart/form-data">
+                              <?= csrf_field(); ?>
                               <div class="mb-3">
                                   <label for="exampleInputEmail1" class="form-label">Nama</label>
                                   <input type="text" value="<?= $o['nama']; ?>" name="nama" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">

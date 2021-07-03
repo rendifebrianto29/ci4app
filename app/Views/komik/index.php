@@ -4,14 +4,14 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <a href="/Komik/create" class="btn btn-primary mt-3">Tambah Data Komik</a>
             <h1 class="mt-2">Daftar Komik</h1>
+            <a href="/Komik/create" class="btn btn-primary mt-2">Tambah Data Komik</a>
             <?php if (session()->getFlashdata('pesan')) : ?>
                 <div class="alert alert-success" role="alert">
                     <?= session()->getFlashdata('pesan'); ?>
                 </div>
             <?php endif; ?>
-            <table class="table">
+            <table class="table mt-2">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
