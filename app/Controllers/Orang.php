@@ -33,13 +33,27 @@ class Orang extends BaseController
 
         return  view('orang/index', $data);
     }
-    public function update($id){
+    public function update($id)
+    {
         $this->orangModel->save([
             'id' => $id,
             'nama' => $this->request->getVar('nama'),
             'alamat' => $this->request->getVar('alamat')
         ]);
 
+        return redirect()->to('/orang');
+    }
+    public function save()
+    {
+        foreach ($this->request->getVar('nama') as $key => $coba) {
+            $data = [
+                'nama' => $this->request->getVar('nama')[$key],
+                'alamat' => $this->request->getVar('alamat')[$key]
+            ];
+            $save = $this->orangModel->insert($data);
+
+            session()->setFlashdata('pesan', 'Data berhasil ditambahkan.');
+        }
         return redirect()->to('/orang');
     }
 }
